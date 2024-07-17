@@ -4,6 +4,7 @@ import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
 
 export default function App() {
   const chativeWidgetRef = useRef(null);
+  const channelId = 'your-channel-id'; // Replace with your channel id
 
   const handleOpenModal = () => {
     chativeWidgetRef.current.show();
@@ -28,7 +29,7 @@ export default function App() {
       </View>
       <ChativeWidget
         ref={chativeWidgetRef}
-        channelId="sacfa6e20-cf0a-11ee-a51c-59f486eae982"
+        channelId={channelId}
         onLoaded={onLoaded}
         onClosed={handleCloseModal}
         onNewMessage={onNewMessage}

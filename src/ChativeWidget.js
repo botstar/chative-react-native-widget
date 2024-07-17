@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import { Platform, SafeAreaView, StyleSheet, View } from 'react-native';
 import WebViewComponent from './WebView';
-import { WidgetApi } from './helper';
+import { INDEX_HIDE, INDEX_SHOW } from './constants';
+import { WidgetApi } from './utils';
 
 const propTypes = {
   channelId: PropTypes.string.isRequired,
@@ -29,7 +30,7 @@ const ChativeWidget = forwardRef(({
   const webViewRef = useRef(null);
 
   const modalStyleDynamic = {
-    zIndex: isModalVisible ? 999 : -1,
+    zIndex: isModalVisible ? INDEX_SHOW : INDEX_HIDE,
     opacity: isModalVisible ? 1 : 0,
   };
 

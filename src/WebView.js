@@ -3,7 +3,7 @@ import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import { StyleSheet } from 'react-native';
 import WebView from 'react-native-webview';
 import { WIDGET_URL } from './constants';
-import { generateScript, safeParse } from './helper';
+import { generateScript, safeParse } from './utils';
 
 const propTypes = {
   channelId: PropTypes.string.isRequired,
