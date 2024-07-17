@@ -3,7 +3,7 @@
 import { ReactElement } from 'react';
 import { ViewStyle } from 'react-native';
 
-declare module 'chative-react-native-sdk' {
+declare module 'chative-react-native-widget' {
   export interface ChativeWidgetProps {
     channelId: string;
     headerComponent?: ReactElement;
