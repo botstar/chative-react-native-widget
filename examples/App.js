@@ -1,4 +1,4 @@
-import ChativeWidget from 'chative-react-native-sdk';
+import ChativeWidget from 'chative-react-native-widget';
 import React, { useRef } from 'react';
 import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
 
