@@ -18,6 +18,8 @@ npm install chative-react-native-sdk
 yarn add chative-react-native-sdk
 ```
 
+This library depends on [react-native-webview](https://www.npmjs.com/package/react-native-webview) and [async-storage](https://github.com/react-native-async-storage/async-storage). Please follow the instructions provided in the docs.
+
 ## Usage
 
 Here's a basic example of how to use the ChativeWidget in your React Native application:
@@ -72,7 +74,6 @@ The following methods are available via the ref:
 
 - `show()`: Display the chat widget
 - `hide()`: Hide the chat widget
-- `injectJavaScript(script: string)`: Inject custom JavaScript into the widget
 - `reload()`: Reload the widget
 
 ## Customization
