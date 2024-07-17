@@ -37,7 +37,7 @@ export default function App() {
   };
 
   const handleCloseChat = () => {
-    widgetRef.current?.hide();
+    // widgetRef.current?.hide();
   };
 
   return (
@@ -46,7 +46,7 @@ export default function App() {
       <ChativeWidget
         ref={widgetRef}
         channelId="your-channel-id"
-        onClosed={handleCloseChat}
+        onClosed={() => console.log('Widget closed')}
         onLoaded={() => console.log('Widget loaded')}
         onNewMessage={(message) => console.log('New message:', message)}
       />
@@ -66,7 +66,7 @@ export default function App() {
 | insetBottom | number | No | Bottom inset (default: 50 for iOS, 20 for Android) |
 | onClosed | () => void | No | Callback when the widget is closed |
 | onLoaded | () => void | No | Callback when the widget is loaded |
-| onNewMessage | (message: any) => void | No | Callback when a new message is received |
+| onNewMessage | () => void | No | Callback when a new message is received |
 
 ## Methods
 
