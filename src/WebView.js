@@ -35,7 +35,7 @@ const WebViewComponent = forwardRef(({ channelId, onLoaded, onClosedWidget, onNe
       }}
       onLoadEnd={() => {
         webViewRef.current?.injectJavaScript(javascript);
-        onLoaded();
+        onLoaded && onLoaded();
       }}
       onMessage={(event) => {
         const { data } = event.nativeEvent;
