@@ -1,0 +1,47 @@
+import ChativeWidget from 'chative-react-native-widget';
+import React, { useRef } from 'react';
+import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
+
+export default function App() {
+  const chativeWidgetRef = useRef(null);
+  const channelId = 's49f3a621-2f07-45a4-8019-92663014b998'; // Replace with your channel id
+
+  const handleOpenModal = () => {
+    chativeWidgetRef.current.show();
+  };
+
+  const handleCloseModal = () => {
+    // Handle logic when the widget is closed
+  };
+
+  const onLoaded = () => {
+    console.log('onLoaded');
+  };
+
+  const onNewMessage = () => {
+    console.log('onNewMessage');
+  }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Button onPress={handleOpenModal} title="Open" />
+      </View>
+      <ChativeWidget
+        ref={chativeWidgetRef}
+        channelId={channelId}
+        onLoaded={onLoaded}
+        onClosed={handleCloseModal}
+        onNewMessage={onNewMessage}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
