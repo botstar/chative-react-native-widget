@@ -6,8 +6,8 @@ Thank you for your interest in developing ChativeWidget! Below is a detailed gui
 
 1. Clone the repository to your local machine:
    ```
-   git clone https://github.com/botstar/chative-react-native-widget.git
-   cd chative-react-native-widget
+   git clone https://github.com/botstar/@chative.io/react-native-widget.git
+   cd @chative.io/react-native-widget
    ```
 
 2. Install dependencies:
@@ -58,7 +58,7 @@ After you've completed your changes and want to test them:
    yarn livechat
    ```
    This command will perform the following steps:
-   - Remove the current version of chative-react-native-widget
+   - Remove the current version of @chative.io/react-native-widget
    - Clear the yarn cache
    - Install the new version from the .tgz file
 

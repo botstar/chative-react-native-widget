@@ -17,9 +17,9 @@ Chative Widget is a React Native component that provides an easy-to-use chat wid
 ## Installation
 
 ```bash
-npm install chative-react-native-widget
+npm install @chative.io/react-native-widget
 # or
-yarn add chative-react-native-widget
+yarn add @chative.io/react-native-widget
 ```
 
 This library depends on [react-native-webview](https://www.npmjs.com/package/react-native-webview) and [async-storage](https://github.com/react-native-async-storage/async-storage). Please follow the instructions provided in the docs.
@@ -31,7 +31,7 @@ Here's a basic example of how to use the ChativeWidget in your React Native appl
 ```jsx
 import React, { useRef } from 'react';
 import { Button, View } from 'react-native';
-import ChativeWidget from 'chative-react-native-widget';
+import ChativeWidget from '@chative.io/react-native-widget';
 
 export default function App() {
   const widgetRef = useRef(null);
@@ -98,7 +98,7 @@ You can customize the appearance of the widget by providing a custom header comp
 This module includes TypeScript declarations. You can import types like this:
 
 ```typescript
-import ChativeWidget, { ChativeWidgetRef } from 'chative-react-native-widget';
+import ChativeWidget, { ChativeWidgetRef } from '@chative.io/react-native-widget';
 ```
 
 ## License

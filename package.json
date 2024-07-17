@@ -1,5 +1,5 @@
 {
-  "name": "chative-react-native-widget",
+  "name": "@chative.io/react-native-widget",
   "version": "0.0.1",
   "description": "React Native SDK for Chative",
   "main": "index.js",

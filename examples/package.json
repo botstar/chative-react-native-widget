@@ -7,11 +7,10 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "livechat": "yarn remove chative-react-native-widget && yarn cache clean && yarn add ../chative-react-native-widget-v0.0.1.tgz"
+    "livechat": "yarn remove @chative.io/react-native-widget && yarn cache clean && yarn add ../@chative.io/react-native-widget-v0.0.1.tgz"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.23.1",
-    "chative-react-native-widget": "../chative-react-native-widget-v0.0.1.tgz",
     "expo": "~51.0.20",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
