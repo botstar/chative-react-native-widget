@@ -42,6 +42,7 @@ const ChativeWidget = forwardRef(({
   const handleClose = () => {
     setIsModalVisible(false);
     onClosed && onClosed();
+    webViewRef.current?.injectJavaScript(WidgetApi('openChatWindow'));
   };
 
   useImperativeHandle(ref, () => ({
@@ -51,7 +52,6 @@ const ChativeWidget = forwardRef(({
     },
     hide: () => {
       setIsModalVisible(false);
-      webViewRef.current?.injectJavaScript(WidgetApi('openChatWindow'));
     },
     injectJavaScript: (script) => {
       webViewRef.current?.injectJavaScript(script);

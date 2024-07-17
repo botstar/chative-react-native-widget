@@ -2265,7 +2265,7 @@ charenc@0.0.2, charenc@~0.0.1:
 
 chative-react-native-sdk@../chative-react-native-sdk-v0.0.1.tgz:
   version "0.0.1"
-  resolved "../chative-react-native-sdk-v0.0.1.tgz#f1db7b3fba1c245738472d2837292add97c768f0"
+  resolved "../chative-react-native-sdk-v0.0.1.tgz#6b64d0e39773d3160899c53c54fe01236f1e76e2"
 
 chownr@^2.0.0:
   version "2.0.0"

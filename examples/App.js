@@ -4,14 +4,14 @@ import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
 
 export default function App() {
   const chativeWidgetRef = useRef(null);
-  const channelId = 'your-channel-id'; // Replace with your channel id
+  const channelId = 's49f3a621-2f07-45a4-8019-92663014b998'; // Replace with your channel id
 
   const handleOpenModal = () => {
     chativeWidgetRef.current.show();
   };
 
   const handleCloseModal = () => {
-    chativeWidgetRef.current.hide();
+    // chativeWidgetRef.current.hide();
   };
 
   const onLoaded = () => {

@@ -46,7 +46,9 @@
     "react",
     "native",
     "chative",
-    "widget"
+    "widget",
+    "chat",
+    "customer-support"
   ],
   "author": "chative",
   "license": "MIT",
