@@ -1,6 +1,6 @@
 {
   "name": "@chative.io/react-native-widget",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native SDK for Chative",
   "main": "index.js",
   "scripts": {
@@ -70,5 +70,5 @@
   "bugs": {
     "url": "https://github.com/botstar/chative-react-native-widget/issues"
   },
-  "homepage": "https://github.com/botstar/chative-react-native-widget#readme"
+  "homepage": "https://chative.io"
 }

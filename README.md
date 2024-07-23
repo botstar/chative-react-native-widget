@@ -1,6 +1,6 @@
-# Chative Widget for React Native
+# [Chative.IO](https://chative.io/) Widget for React Native
 
-Chative Widget is a React Native component that provides an easy-to-use chat widget for your mobile applications. It allows you to integrate a customizable chat interface with minimal setup.
+[Chative.IO](https://chative.io/) Widget is a React Native component that provides an easy-to-use chat widget for your mobile applications. It allows you to integrate a customizable chat interface with minimal setup.
 
 ## Features
 
