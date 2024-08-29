@@ -46,6 +46,6 @@ export const safeStringify = (data) => {
   try {
     return JSON.stringify(data);
   } catch (e) {
-    return '';
+    return '{}';
   }
 }
