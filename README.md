@@ -1,12 +1,13 @@
-# Chative Widget for React Native
+# [Chative.IO](https://chative.io/) Widget for React Native
 
-Chative Widget is a React Native component that provides an easy-to-use chat widget for your mobile applications. It allows you to integrate a customizable chat interface with minimal setup.
+[Chative.IO](https://chative.io/) Widget is a React Native component that provides an easy-to-use chat widget for your mobile applications. It allows you to integrate a customizable chat interface with minimal setup.
 
 ## Features
 
 - Customizable chat interface
 - Easy to show/hide programmatically
 - Supports custom header components
+- Supports filling user information into live chat. (v0.5 or higher)
 - Adjustable insets for different device sizes
 - TypeScript support
 
@@ -44,12 +45,24 @@ export default function App() {
     // widgetRef.current?.hide();
   };
 
+  const user = {
+    user_id: 'UNIQUE_USER_ID',
+     user: {
+        email: 'acme@example.com', // Your user's email address
+        first_name: 'John',
+        last_name: 'Doe',
+        phone: '+1234567890',
+        custom_field: 'CUSTOMER_FIELD_VALUE' // Replace key and value with your custom field
+    },
+  }
+
   return (
     <View style={{ flex: 1 }}>
       <Button title="Open Chat" onPress={handleOpenChat} />
       <ChativeWidget
         ref={widgetRef}
         channelId="your-channel-id"
+        user={user} // v0.5 or higher
         onClosed={() => console.log('Widget closed')}
         onLoaded={() => console.log('Widget loaded')}
         onNewMessage={(message) => console.log('New message:', message)}
@@ -64,6 +77,7 @@ export default function App() {
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
 | channelId | string | Yes | The ID of the chat channel |
+| user | ChativeWidgetUser | No | Information about the user, used for booting into live chat.
 | headerComponent | ReactElement | No | Custom header component |
 | containerStyle | ViewStyle | No | Custom style for the container |
 | insetTop | number | No | Top inset (default: 50 for iOS, 20 for Android) |
@@ -98,8 +112,17 @@ You can customize the appearance of the widget by providing a custom header comp
 This module includes TypeScript declarations. You can import types like this:
 
 ```typescript
-import ChativeWidget, { ChativeWidgetRef } from '@chative.io/react-native-widget';
+import ChativeWidget, { ChativeWidgetRef, ChativeWidgetUser } from '@chative.io/react-native-widget';
 ```
+### ChativeWidgetUser Interface
+| Field         | Type     | Required | Description |
+|---------------|----------|----------|-------------|
+| user_id       | string   | Yes      | A unique identifier for the user. This is used to track the user's session in the chat. |
+| user.email    | string   | No       | The user's email address. Optional, but recommended for better user identification. |
+| user.first_name | string   | No       | The user's first name. Optional, useful for personalized interactions. |
+| user.last_name  | string   | No       | The user's last name. Optional, useful for personalized interactions. |
+| user.phone    | string   | No       | The user's phone number. Optional, can be used for follow-up contact. |
+| user.[key: string]: any | any | No | Any additional information about the user, represented as key-value pairs. This can be used for custom data. |
 
 ## License
 

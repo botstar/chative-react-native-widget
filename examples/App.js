@@ -22,6 +22,16 @@ export default function App() {
     console.log('onNewMessage');
   }
 
+  const user = {
+    user_id: 'UNIQUE_USER_ID',
+    user: {
+      email: 'abc@gmail.com',
+      first_name: 'Chative',
+      last_name: 'User',
+      phone: '1234567890',
+    },
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -30,6 +40,7 @@ export default function App() {
       <ChativeWidget
         ref={chativeWidgetRef}
         channelId={channelId}
+        user={user}
         onLoaded={onLoaded}
         onClosed={handleCloseModal}
         onNewMessage={onNewMessage}
