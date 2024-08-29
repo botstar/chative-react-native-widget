@@ -9,6 +9,7 @@ const propTypes = {
   channelId: PropTypes.string.isRequired,
   headerComponent: PropTypes.element,
   containerStyle: PropTypes.object,
+  user: PropTypes.object || undefined,
   insetTop: PropTypes.number,
   insetBottom: PropTypes.number,
   onClosed: PropTypes.func,
@@ -18,6 +19,7 @@ const propTypes = {
 
 const ChativeWidget = forwardRef(({
   channelId,
+  user,
   headerComponent,
   containerStyle,
   insetTop = Platform.OS === 'ios' ? 50 : 20,
@@ -68,6 +70,7 @@ const ChativeWidget = forwardRef(({
         <WebViewComponent
           ref={webViewRef}
           channelId={channelId}
+          user={user}
           onLoaded={onLoaded}
           onNewMessage={onNewMessage}
           onClosedWidget={handleClose}
@@ -93,4 +96,4 @@ const styles = StyleSheet.create({
 
 ChativeWidget.propTypes = propTypes;
 
-export default ChativeWidget;
+export default React.memo(ChativeWidget);

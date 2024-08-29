@@ -1,4 +1,5 @@
-export const generateScript = () => {
+export const generateScript = (user = {}) => {
+  const userString = safeStringify(user);
   return `
     window.cti_api = function (action, data) {
       if (window.ChativeApi) {
@@ -7,7 +8,14 @@ export const generateScript = () => {
     
       window.ChativeEvents ||= [];
       window.ChativeEvents.push([action, data]);
+    };
+
+    const user = ${userString};
+
+    if (user.user_id) {
+      window.cti_api('boot', JSON.parse('${userString}'));
     }
+
     window.cti_api('openChatWindow');
     window.cti_api('addEventListener', { event: 'closed', callback: () => { 
       window.cti_api('hide'); 
@@ -22,7 +30,7 @@ export const generateScript = () => {
 
 export const WidgetApi = (event, data) => {
   return `
-    window.cti_api('${event}', ${JSON.stringify(data)});
+    window.cti_api('${event}', ${data});
   `;
 };
 
@@ -33,3 +41,11 @@ export const safeParse = (jsonString) => {
     return {};
   }
 };
+
+export const safeStringify = (data) => {
+  try {
+    return JSON.stringify(data);
+  } catch (e) {
+    return '';
+  }
+}

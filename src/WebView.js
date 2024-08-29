@@ -7,15 +7,15 @@ import { generateScript, safeParse } from './utils';
 
 const propTypes = {
   channelId: PropTypes.string.isRequired,
+  user: PropTypes.object,
   onLoaded: PropTypes.func,
   onClosedWidget: PropTypes.func,
   onNewMessage: PropTypes.func,
 };
 
-const WebViewComponent = forwardRef(({ channelId, onLoaded, onClosedWidget, onNewMessage }, ref) => {
+const WebViewComponent = forwardRef(({ channelId, user, onLoaded, onClosedWidget, onNewMessage }, ref) => {
   const webViewRef = useRef(null);
-
-  const javascript = generateScript();
+  const javascriptInit = React.useMemo(() => generateScript(user), [user]);
 
   useImperativeHandle(ref, () => ({
     injectJavaScript: (script) => {
@@ -31,10 +31,10 @@ const WebViewComponent = forwardRef(({ channelId, onLoaded, onClosedWidget, onNe
       ref={webViewRef}
       style={styles.webViewContainer}
       source={{
-        uri: `${WIDGET_URL}/${channelId}?mode=livechat`,
+        uri: `${WIDGET_URL}/${channelId}?mode=livechat&state=${user ? 'off' : 'on'}`,
       }}
       onLoadEnd={() => {
-        webViewRef.current?.injectJavaScript(javascript);
+        webViewRef.current?.injectJavaScript(javascriptInit);
         onLoaded && onLoaded();
       }}
       onMessage={(event) => {
