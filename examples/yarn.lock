@@ -796,9 +796,9 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
-"@chative.io/react-native-widget@../chative.io-react-native-widget-v0.5.0.tgz":
-  version "0.5.0"
-  resolved "../chative.io-react-native-widget-v0.5.0.tgz#b074a980cd915570a5770b8a540949b47b951214"
+"@chative.io/react-native-widget@../chative.io-react-native-widget-v0.5.1.tgz":
+  version "0.5.1"
+  resolved "../chative.io-react-native-widget-v0.5.1.tgz#915eab11f56669755299544d916a25c03297064a"
 
 "@expo/bunyan@^4.0.0":
   version "4.0.0"
