@@ -4,7 +4,7 @@ import { Button, SafeAreaView, StyleSheet, View } from 'react-native';
 
 export default function App() {
   const chativeWidgetRef = useRef(null);
-  const channelId = 's49f3a621-2f07-45a4-8019-92663014b998'; // Replace with your channel id
+  const channelId = 's49f3a621-2f07-45a4-8019-92663014b997'; // Replace with your channel id
 
   const handleOpenModal = () => {
     chativeWidgetRef.current.show();
@@ -20,6 +20,10 @@ export default function App() {
 
   const onNewMessage = () => {
     console.log('onNewMessage');
+  }
+
+  const onError = (error) => {
+    console.log('Error:', error);
   }
 
   const user = {
@@ -44,6 +48,7 @@ export default function App() {
         onLoaded={onLoaded}
         onClosed={handleCloseModal}
         onNewMessage={onNewMessage}
+        onError={onError}
       />
     </SafeAreaView>
   );

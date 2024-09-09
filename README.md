@@ -66,6 +66,7 @@ export default function App() {
         onClosed={() => console.log('Widget closed')}
         onLoaded={() => console.log('Widget loaded')}
         onNewMessage={(message) => console.log('New message:', message)}
+        onError={(message) => console.log('Error', message)}
       />
     </View>
   );
@@ -85,6 +86,7 @@ export default function App() {
 | onClosed | () => void | No | Callback when the widget is closed |
 | onLoaded | () => void | No | Callback when the widget is loaded |
 | onNewMessage | () => void | No | Callback when a new message is received |
+| onError | (error:string) => void | No | Callback function triggered when an error occurs. |
 
 ## Methods
 

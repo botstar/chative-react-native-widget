@@ -1,3 +1,4 @@
+import { QUERY_URL, WIDGET_URL } from './constants';
 export const generateScript = (user = {}) => {
   const userString = safeStringify(user);
   return `
@@ -25,8 +26,43 @@ export const generateScript = (user = {}) => {
     window.cti_api('addEventListener', { event: 'new-agent-message', callback: () => { 
       window.ReactNativeWebView.postMessage(JSON.stringify({ event: 'new-agent-message' })); 
     }});
+
+    window.cti_api('addEventListener', { event: 'ready', callback: () => { 
+      window.ReactNativeWebView.postMessage(JSON.stringify({ event: 'ready' })); 
+    }});
   `;
 };
+
+export const generateScriptGetError = (channelId) => {
+  return `
+  function getTimeZone() {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      return timeZone;
+  }
+  (function() {
+    fetch("${QUERY_URL}", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "app_id": "${channelId}",
+        "user_id": "",
+        "locale": "en-US",
+        "timezone": getTimeZone(),
+        "template": false,
+        "host": "${WIDGET_URL}/${channelId}?mode=livechat"
+      })
+    }).then((response) => {
+      if (response.status !== 200) {
+        window.ReactNativeWebView.postMessage(JSON.stringify({ event: 'error', message: 'missing_config' }));
+      }
+    }).catch((error) => {
+      window.ReactNativeWebView.postMessage(JSON.stringify({ event: 'error', data: error }));
+    });
+  })();
+  `;
+}
 
 export const WidgetApi = (event, data) => {
   return `

@@ -23,6 +23,7 @@ declare module '@chative.io/react-native-widget' {
     insetBottom?: number;
     onClosed?: () => void;
     onLoaded?: () => void;
+    onError?: (error: any) => void;
     onNewMessage?: (message: any) => void;
   }
 

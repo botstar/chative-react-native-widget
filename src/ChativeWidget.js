@@ -15,6 +15,7 @@ const propTypes = {
   onClosed: PropTypes.func,
   onLoaded: PropTypes.func,
   onNewMessage: PropTypes.func,
+  onError: PropTypes.func,
 };
 
 const ChativeWidget = forwardRef(({
@@ -27,6 +28,7 @@ const ChativeWidget = forwardRef(({
   onClosed,
   onLoaded,
   onNewMessage,
+  onError,
 }, ref) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const webViewRef = useRef(null);
@@ -74,6 +76,7 @@ const ChativeWidget = forwardRef(({
           onLoaded={onLoaded}
           onNewMessage={onNewMessage}
           onClosedWidget={handleClose}
+          onError={onError}
         />
       </View>
     </SafeAreaView>
